@@ -1,16 +1,56 @@
-<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head>
-<meta charset="utf-8">
-<script>
-function myFunction(){
-	alert("你好，我是一个警告框！");
-}
-</script>
-</head>
-<body>
-
-<input type="button" onclick="myFunction()" value="显示警告框" />
-
-</body>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>delete</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+	<script type="text/javascript">
+		function del(){
+			/* 显示 */
+			document.getElementById("delete").style.display="block";
+ 		}
+ 		function delesc(){
+ 			/* 隐藏 */
+ 			document.getElementById("delete").style.display="none";
+ 		}
+	</script>
+  </head>
+  
+  <body>
+  
+  	<!-- 按钮 -->
+	<input onclick="del()" type="button" value="删除" style="width: 100px;height: 45px;border: 0px;border-radius: 5px;background-color: #0271CD;color: white;">
+   
+    <!-- 删除确认框 -->
+	<div id="delete" style="border: 1px solid;width: 100%;margin: auto;height: 100%;position: fixed;left: 0px;top: 0px;background: rgb(0,0,0,0.6);overflow: auto;text-align: center;display: none;">
+		<div style="background: white;width: 250px;height: 150px;margin: auto;margin-top: 50px;border-radius: 5px;">
+			<div style="height: 110px;border-bottom: 1px solid #CCCCCC;">
+				<!-- 框内内容 -->
+				<div style="font-size: 0.9rem;padding-top: 30px;">您确定要删除该项目吗？</div>
+				<div style="font-size: 0.8rem;margin-top: 15px;">一旦删除将不可恢复。</div>
+			</div>
+			<div style="height: 39px;">
+				<div onclick="javascript:window.location.href=''" style="float: left;width: 49%;height: 39px;border-right: 1px solid #CCCCCC;line-height: 39px;font-size: 1rem;">确认</div>
+				<div onclick="delesc()" style="float: right;width: 50%;height: 39px;line-height: 39px;font-size: 1rem">取消</div>
+			</div>
+		</div>
+	</div>
+	<!-- 删除确认框end -->
+	
+  </body>
 </html>
